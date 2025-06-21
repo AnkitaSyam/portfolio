@@ -6,25 +6,28 @@
   <title>Ankita Syam | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
   <section class="hero">
     <div class="hero-text">
       <h1>Ankita Syam</h1>
-      <p class="tagline">B.Tech CSE Student | QA Intern | Tech Enthusiast</p>
+      <p class="tagline">CSE UG ASIET'27 | Content Writer | Tech Enthusiast</p>
       <div class="links">
         <a href="https://github.com/AnkitaSyam" target="_blank">GitHub</a>
         <a href="https://www.linkedin.com/in/ankita-syam-774b25290" target="_blank">LinkedIn</a>
         <a href="assets/AnkitaSyamResume.pdf" download>Download Resume</a>
       </div>
-      <p class="desc">Passionate about software development, AI/ML, and community building. Currently a QA Intern at Talrop and active volunteer at TinkerHub.</p>
+      <p class="desc">
+        I’m a 3rd-year B.Tech Computer Science student with a strong interest in tech, software development, and emerging technologies.
+        I enjoy learning by doing, and I’m actively involved in volunteering and student communities to grow, contribute, and connect.
+      </p>
     </div>
   </section>
 
   <section class="experience">
     <h2>Experience</h2>
-
     <div>
       <h3>Content Team – Hack Club</h3>
       <p>Jun 2025 – Present</p>
@@ -33,7 +36,6 @@
         <li>Maintained engaging copy and visual narratives</li>
       </ul>
     </div>
-
     <div>
       <h3>Content Team – Techiepedia</h3>
       <p>Jun 2025 – Present</p>
@@ -42,7 +44,6 @@
         <li>Promoted technical workshops and programs</li>
       </ul>
     </div>
-
     <div>
       <h3>Quality Assurance Intern – Talrop</h3>
       <p>Jul 2024 – Jan 2025</p>
@@ -52,7 +53,6 @@
         <li>Collaborated with devs and designers for better usability</li>
       </ul>
     </div>
-
     <div>
       <h3>Media Team – TinkerHub ASIET</h3>
       <p>Oct 2023 – Jul 2024</p>
@@ -88,7 +88,7 @@
   <section class="skills">
     <h2>Skills</h2>
     <p><strong>Technical:</strong> C, C++, Java, Python, HTML, CSS, Git</p>
-    <p><strong>Soft Skills:</strong> Teamwork, Time Management, Attention to Detail, Active Listening, Adaptability, Multitasking</p>
+    <p><strong>Soft Skills:</strong> Teamwork, Time Management, Listening, Adaptability</p>
   </section>
 
   <section class="contact">
@@ -97,6 +97,52 @@
     <p>Phone: +91 9048781881</p>
     <p>Location: Kochi, Kerala</p>
   </section>
+
+  <!-- 🎉 Confetti Animation Script -->
+  <script>
+    window.onload = function () {
+      const duration = 2000;
+      const animationEnd = Date.now() + duration;
+      const defaults = {
+        startVelocity: 30,
+        spread: 360,
+        ticks: 60,
+        zIndex: 9999
+      };
+
+      function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      const interval = setInterval(function () {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+          return clearInterval(interval);
+        }
+
+        const particleCount = 100 * (timeLeft / duration);
+
+        confetti({
+          particleCount,
+          origin: {
+            x: randomInRange(0.1, 0.3),
+            y: Math.random() - 0.2
+          },
+          ...defaults
+        });
+
+        confetti({
+          particleCount,
+          origin: {
+            x: randomInRange(0.7, 0.9),
+            y: Math.random() - 0.2
+          },
+          ...defaults
+        });
+      }, 250);
+    };
+  </script>
 
 </body>
 </html>
